@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hearing Screening</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/materialize.min.css">
+    <link rel="stylesheet" href="/static/css/hearing-screening.css">
+
+    <script type="text/javascript" src="/static/js/lib/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/materialize.min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/clipboard.min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/md5.min.js"></script>
+    <script type="text/javascript" src="/static/js/src/hearing-screening.js"></script>
+</head>
+
+<body>
+    <div class="row header">
+        <div class="col s12">
+            <div class="divider"></div>
+        </div>
+        <div class="col s12">
+            <div class="left">
+                <h5>Screening</h5>
+                <h6 class="left"> </h6>
+            </div>
+        </div>
+        <div class="col s12">
+            <div class="divider bottom"></div>
+        </div>
+    </div>
+
+    <div class="row prompt">
+        <h4 class="center">Complete the Hearing Screening</h4>
+        <h6 class="center">Before beginning the primary task, you must complete a quick hearing test.</h6>
+    </div>
+    <div class="row instructions">
+        <p>Please follow these instructions:</p>
+        <form class="col s12" id="hearing-test-form" name="hearing-test-form">
+            <ol class="collection">
+                <li class="collection-item">Find a quiet place with no background noise.</li>
+                <li class="collection-item">If you have headphones, put them on.</li>
+                <li class="collection-item">Listen to the following audio file. While you are listening, adjust the level of your speakers/headphones to a comfortable volume.<span class="secondary-content"><audio controls preload="auto" src="/static/wav/1000Hz.wav">Your browser does not support the audio element.</audio></span><br />Once it is set, do not change the volume.</li>
+                <li class="collection-item">Listen to the <strong>entire</strong> audio file below and count how many tones you hear: <span id="audio1-container" class="secondary-content" ></span>
+                    <select id="audiofile1-tone-count" required class="validate" name="audiofile1-tone-count">
+                        <option value="" disabld selected>How many tones did you hear?</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </li>
+                <li class="collection-item">Listen to the <strong>entire</strong> audio file below and count how many tones you hear: <span id="audio2-container" class="secondary-content"></span>
+                    <select id="audiofile2-tone-count" required class="validate" name="audiofile2-tone-count">
+                        <option value="" disabld selected>How many tones did you hear?</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </li>
+            </ol>
+            <button class="btn waves-effect waves-light right" type="submit">Next</button>
+        </form>
+    </div>
+      <!-- Modal Structure -->
+    <div id="completion-modal" class="modal">
+        <div class="modal-content">
+            <h4>Completion Code</h4>
+            <p>Copy any paste this code into the dialog in the main task:</p>
+            <!-- Target -->
+            <div class="input-field">
+                <input id="completion-code" value="<none>" type="text">
+
+                <!-- Trigger -->
+                <button id="clip-btn" class="btn waves-effect waves-light" data-clipboard-target="#completion-code">Copy</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+            $("select[required]").css({display: "inline", height: 0, padding: 0, width: 0});
+
+            $('.modal').modal({dismissible: false});
+
+            var clipboard = new Clipboard('#clip-btn');
+
+            var hearingScreening = new HearingScreening();
+            hearingScreening.initialize();
+        });
+    </script>
+</body>
+</html>
