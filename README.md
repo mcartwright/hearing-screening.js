@@ -2,7 +2,7 @@
 A simple hearing screening in JavaScript
 
 # Demo
-To demo it, simply run `python -m SimpleHTTPServer`, and visit http://localhost:8000?inputCode=1 
+To demo it, simply run `python -m SimpleHTTPServer`, and visit <http://localhost:8000?inputCode=1>
 
 # Inputs and outputs
 The `inputCode` GET variable is an identifier that is used in a hash function to generate the output code which you can use to verify if they passed or not.
