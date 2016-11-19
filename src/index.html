@@ -11,6 +11,7 @@
     <script type="text/javascript" src="/static/js/lib/materialize.min.js"></script>
     <script type="text/javascript" src="/static/js/lib/clipboard.min.js"></script>
     <script type="text/javascript" src="/static/js/lib/md5.min.js"></script>
+    <script type="text/javascript" src="/static/js/src/stimuli.js"></script>
     <script type="text/javascript" src="/static/js/src/hearing-screening.js"></script>
 </head>
 
@@ -40,7 +41,7 @@
             <ol class="collection">
                 <li class="collection-item">Find a quiet place with no background noise.</li>
                 <li class="collection-item">If you have headphones, put them on.</li>
-                <li class="collection-item">Listen to the following audio file. While you are listening, adjust the level of your speakers/headphones to a comfortable volume.<span class="secondary-content"><audio controls preload="auto" src="/static/wav/1000Hz.wav">Your browser does not support the audio element.</audio></span><br />Once it is set, do not change the volume.</li>
+                <li class="collection-item">Listen to the following audio file. While you are listening, adjust the level of your speakers/headphones to a comfortable volume.<span class="secondary-content"><audio controls preload="auto">Your browser does not support the audio element.<source src="/static/audio/1000Hz.mp3" type="audio/mpeg" /></audio></span><br />Once it is set, do not change the volume.</li>
                 <li class="collection-item">Listen to the <strong>entire</strong> audio file below and count how many tones you hear: <span id="audio1-container" class="secondary-content" ></span>
                     <select id="audiofile1-tone-count" required class="validate" name="audiofile1-tone-count">
                         <option value="" disabld selected>How many tones did you hear?</option>
@@ -68,7 +69,7 @@
                     </select>
                 </li>
             </ol>
-            <button class="btn waves-effect waves-light right" type="submit">Next</button>
+            <button class="btn mp3es-effect mp3es-light right" type="submit">Next</button>
         </form>
     </div>
       <!-- Modal Structure -->
@@ -81,7 +82,7 @@
                 <input id="completion-code" value="<none>" type="text">
 
                 <!-- Trigger -->
-                <button id="clip-btn" class="btn waves-effect waves-light" data-clipboard-target="#completion-code">Copy</button>
+                <button id="clip-btn" class="btn mp3es-effect mp3es-light" data-clipboard-target="#completion-code">Copy</button>
             </div>
         </div>
     </div>
@@ -94,7 +95,19 @@
 
             var clipboard = new Clipboard('#clip-btn');
 
-            var hearingScreening = new HearingScreening();
+            function getParameterByName(name, url) {
+                if (!url) {
+                  url = window.location.href;
+                }
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            var hearingScreening = new HearingScreening(getParameterByName('inputCode'));
             hearingScreening.initialize();
         });
     </script>
