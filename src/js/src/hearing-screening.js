@@ -10,7 +10,7 @@ HearingScreening.prototype.initialize = function () {
     var audio1element = new Audio();
 
     // set attributes
-    audio1element.src = 'static/audio/' + stimuli[this.audio1Idx].filename;
+    audio1element.src = 'audio/' + stimuli[this.audio1Idx].filename;
     audio1element.controls = true;
     audio1element.id = 'audio1';
 	$('#audio1-container').append(audio1element);
@@ -18,7 +18,7 @@ HearingScreening.prototype.initialize = function () {
     var audio2element = new Audio();
 
     // set attributes
-    audio2element.src = 'static/audio/' + stimuli[this.audio2Idx].filename;
+    audio2element.src = 'audio/' + stimuli[this.audio2Idx].filename;
     audio2element.controls = true;
     audio2element.id = 'audio2';
 	$('#audio2-container').append(audio2element);
