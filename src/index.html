@@ -33,14 +33,14 @@
 
     <div class="row prompt">
         <h4 class="center">Complete the Hearing Screening</h4>
-        <h6 class="center">Before beginning the primary task, you must complete a quick hearing test.</h6>
+        <h6 class="center">Before beginning the primary task, you must complete a quick hearing test to ensure you are listening over adequate speakers / headphones. Laptop speakers are not adequate.</h6>
     </div>
     <div class="row instructions">
         <p>Please follow these instructions:</p>
         <form class="col s12" id="hearing-test-form" name="hearing-test-form">
             <ol class="collection">
                 <li class="collection-item">Find a quiet place with no background noise.</li>
-                <li class="collection-item">If you have headphones, put them on.</li>
+                <li class="collection-item">If you have headphones, please put them on.</li>
                 <li class="collection-item">Listen to the following audio file. While you are listening, adjust the level of your speakers/headphones to a comfortable volume.<span class="secondary-content"><audio controls preload="auto">Your browser does not support the audio element.<source src="audio/1000Hz.mp3" type="audio/mpeg" /></audio></span><br />Once it is set, do not change the volume.</li>
                 <li class="collection-item">Listen to the <strong>entire</strong> audio file below and count how many tones you hear: <span id="audio1-container" class="secondary-content" ></span>
                     <select id="audiofile1-tone-count" required class="validate" name="audiofile1-tone-count">
@@ -76,7 +76,7 @@
     <div id="completion-modal" class="modal">
         <div class="modal-content">
             <h4>Completion Code</h4>
-            <p>Copy any paste this code into the dialog in the main task:</p>
+            <p>Copy any paste this code into the dialog in the main task window:</p>
             <!-- Target -->
             <div class="input-field">
                 <input id="completion-code" value="<none>" type="text">
