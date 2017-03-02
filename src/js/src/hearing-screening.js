@@ -7,25 +7,25 @@ function HearingScreening(inputCode) {
 HearingScreening.prototype.initialize = function () {
 	this.genStimulusIdxs();
 
-    var audio1element = new Audio();
+	var audio1element = new Audio();
 
-    // set attributes
-    audio1element.src = 'audio/' + stimuli[this.audio1Idx].filename;
-    audio1element.controls = true;
-    audio1element.id = 'audio1';
+	// set attributes
+	audio1element.src = 'audio/' + stimuli[this.audio1Idx].filename;
+	audio1element.controls = true;
+	audio1element.id = 'audio1';
 	$('#audio1-container').append(audio1element);
 
-    var audio2element = new Audio();
+	var audio2element = new Audio();
 
-    // set attributes
-    audio2element.src = 'audio/' + stimuli[this.audio2Idx].filename;
-    audio2element.controls = true;
-    audio2element.id = 'audio2';
+	// set attributes
+	audio2element.src = 'audio/' + stimuli[this.audio2Idx].filename;
+	audio2element.controls = true;
+	audio2element.id = 'audio2';
 	$('#audio2-container').append(audio2element);
 
 	var handle = this;
 	$("#hearing-test-form").submit(function( event ) {
-		handle.evaluate(parseInt($('#audiofile1-tone-count').val()), parseInt($('#audiofile2-tone-count').val()));
+		handle.evaluate(parseInt($("input[name=audiofile1-tone-count]:checked").val()), parseInt($("input[name=audiofile2-tone-count]:checked").val()));
 		event.preventDefault();
 	});
 };
