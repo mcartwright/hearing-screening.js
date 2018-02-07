@@ -1,7 +1,8 @@
-function HearingScreening(inputCode) {
+function HearingScreening(inputCode, dialog) {
 	this.audio1Idx = -1;
 	this.audio2Idx = -1;
 	this.inputCode = inputCode;
+	this.dialog = dialog
 }
 
 HearingScreening.prototype.initialize = function () {
@@ -38,8 +39,19 @@ HearingScreening.prototype.evaluate = function (count1, count2) {
 		returnCode = md5("fail" + (this.inputCode * this.inputCode));
 	}
 
-	$('#completion-code').val(returnCode);
-	$('#completion-modal').modal('open');
+    if (this.dialog==='1') {
+        $('#completion-code').val(returnCode);
+        $('#completion-code-modal').modal('open');
+    } else {
+        $.post("/save",
+        {
+            inputCode: this.inputCode,
+            outputCode: returnCode
+        },
+        function(data, status){
+            $('#completion-modal').modal('open');
+        });
+    }
 };
 
 HearingScreening.prototype.genStimulusIdxs = function () {

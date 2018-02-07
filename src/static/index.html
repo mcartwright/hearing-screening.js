@@ -121,7 +121,7 @@
     </form>
 </div>
 <!-- Modal Structure -->
-<div id="completion-modal" class="modal">
+<div id="completion-code-modal" class="modal">
     <div class="modal-content">
         <h4>Completion Code</h4>
         <p>Copy any paste this code into the dialog in the main task window:</p>
@@ -132,6 +132,14 @@
             <!-- Trigger -->
             <button id="clip-btn" class="btn mp3es-effect mp3es-light" data-clipboard-target="#completion-code">Copy</button>
         </div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="completion-modal" class="modal">
+    <div class="modal-content">
+        <h4>Thanks!</h4>
+        <p>Please return to the task.</p>
     </div>
 </div>
 <script>
@@ -155,7 +163,7 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        var hearingScreening = new HearingScreening(getParameterByName('inputCode'));
+        var hearingScreening = new HearingScreening(getParameterByName('inputCode'), getParameterByName('dialog'));
         hearingScreening.initialize();
     });
 </script>
