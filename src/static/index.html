@@ -139,9 +139,25 @@
 <div id="completion-modal" class="modal">
     <div class="modal-content">
         <h4>Thanks!</h4>
-        <p>Please return to the task.</p>
+        <p>Please close this window and return to the task.</p>
     </div>
 </div>
+
+<!-- Modal Structure -->
+<div id="input-code-modal" class="modal">
+    <div class="modal-content">
+        <h4>User ID</h4>
+        <p>What is your username?</p>
+        <!-- Target -->
+        <div class="input-field">
+            <input id="input-code" type="text">
+
+            <!-- Trigger -->
+            <button id="input-code-btn" class="btn mp3es-effect mp3es-light">Submit</button>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
         $('select').material_select();
@@ -163,7 +179,7 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        var hearingScreening = new HearingScreening(getParameterByName('inputCode'), getParameterByName('dialog'));
+        var hearingScreening = new HearingScreening(getParameterByName('inputCode'), getParameterByName('backend'));
         hearingScreening.initialize();
     });
 </script>
