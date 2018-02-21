@@ -6,7 +6,7 @@ import numpy as np
 import click
 
 AUDIOFILEDTYPE = 'int16'
-OUTPUT_DIR = 'src/static/audio/'
+OUTPUT_DIR = 'hearing_screening/static/audio/'
 
 @click.group()
 def cli():
