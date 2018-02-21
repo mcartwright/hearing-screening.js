@@ -1,0 +1,2 @@
+recursive-include hearing_screening/templates *
+recursive-include hearing_screening/static *
