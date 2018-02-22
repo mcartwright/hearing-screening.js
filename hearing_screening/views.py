@@ -20,7 +20,7 @@ def save():
         input_code = request.form["inputCode"]
         output_code = request.form["outputCode"]
         m5 = md5()
-        m5.update('pass' + str(input_code) + str(input_code))
+        m5.update(('pass' + str(input_code) + str(input_code)).encode())
         pass_code = m5.hexdigest()
 
         if output_code == pass_code:
