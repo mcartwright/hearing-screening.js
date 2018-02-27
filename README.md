@@ -1,5 +1,5 @@
 # hearing-screening.js
-A simple hearing screening in JavaScript
+A very, simple, lightweight hearing screening in JavaScript to ensure that a participant's playback device can reproduce and the participant themselves can perceive a specified range of frequencies.
 
 # Demo without backend
 To demo it without the backend (output code is given to user to copy and paste into another application), simply run `python -m SimpleHTTPServer` from the static directory (i.e., `hearing-screening.js/hearing_screening/static`), and visit <http://localhost:8000>
